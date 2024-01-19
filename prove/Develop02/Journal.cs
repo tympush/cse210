@@ -34,11 +34,11 @@ class Journal
         Console.Write("What is the filename? ");
         fileName = Console.ReadLine();
 
-        using (StreamWriter writer = new StreamWriter(fileName))
+        using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             foreach (Entry entry in _entries)
             {
-                writer.WriteLine($"{entry._date} - {entry._prompt} - {entry._answer}");
+                outputFile.WriteLine($"{entry._date}|{entry._prompt}|{entry._answer}");
             }
         }
     }
@@ -48,13 +48,25 @@ class Journal
         Console.Write("What is the filename? ");
         fileName = Console.ReadLine();
 
-        using (StreamReader reader = new StreamReader(fileName))
+        _entries.Clear();
+
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+
+        foreach (string line in lines)
         {
-            string line;
-            while ((line = reader.ReadLine()) != null)
+            string[] parts = line.Split("|");
+
+            Entry loadedEntry = new Entry
             {
-                Console.WriteLine(line);
-            }
+                _date = parts[0],
+                _prompt = parts[1],
+                _answer = parts[2]
+            };
+
+            _entries.Add(loadedEntry);
         }
+            
+            
+        
     }
 }

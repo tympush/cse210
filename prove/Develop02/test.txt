@@ -1,0 +1,3 @@
+2024-01-19|How have I felt the spirit today?|test answer 1
+2024-01-19|What was my most memorable experience for the day?|test answer 2
+2024-01-19|What did I dedicate the most time to today?|test answer 3
