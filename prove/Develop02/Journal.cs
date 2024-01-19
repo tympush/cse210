@@ -1,14 +1,15 @@
 using System;
+using Newtonsoft.Json;
 
 class Journal
 {
     public List<Entry> _entries = new List<Entry>();
 
-
     string fileName;
     PromptGenerator userGenerator = new PromptGenerator();
 
-    public void AddEntry(){
+    public void AddEntry()
+    {
         Entry userEntry = new Entry();
 
         userEntry._prompt = userGenerator.ChooseRandom();
@@ -21,52 +22,36 @@ class Journal
         _entries.Add(userEntry);
     }
 
-    public void DisplayEntries(){
-
-        foreach (Entry entry in _entries){
-                
+    public void DisplayEntries()
+    {
+        foreach (Entry entry in _entries)
+        {
             Console.WriteLine($"Date: {entry._date} - Prompt: {entry._prompt}\n{entry._answer}\n");
         }
     }
 
-    public void SaveFile(){
-
+    public void SaveFile()
+    {
         Console.Write("What is the filename? ");
-        fileName = Console.ReadLine();
+        fileName = Console.ReadLine() + ".json";
 
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-            foreach (Entry entry in _entries)
-            {
-                outputFile.WriteLine($"{entry._date}|{entry._prompt}|{entry._answer}");
-            }
+            string json = JsonConvert.SerializeObject(_entries, Formatting.Indented);
+            outputFile.Write(json);
         }
     }
 
-    public void LoadFile(){
-
+    public void LoadFile()
+    {
         Console.Write("What is the filename? ");
-        fileName = Console.ReadLine();
+        fileName = Console.ReadLine() + ".json";
 
         _entries.Clear();
 
         string[] lines = System.IO.File.ReadAllLines(fileName);
 
-        foreach (string line in lines)
-        {
-            string[] parts = line.Split("|");
-
-            Entry loadedEntry = new Entry
-            {
-                _date = parts[0],
-                _prompt = parts[1],
-                _answer = parts[2]
-            };
-
-            _entries.Add(loadedEntry);
-        }
-            
-            
-        
+        string json = File.ReadAllText(fileName);
+        _entries = JsonConvert.DeserializeObject<List<Entry>>(json);
     }
 }

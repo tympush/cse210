@@ -1,13 +1,10 @@
 using System;
 
-public class Entry{
-
+public class Entry
+{
     public string _prompt;
-
     public string _answer;
-
     public string _date;
-
 
     public void Display()
     {

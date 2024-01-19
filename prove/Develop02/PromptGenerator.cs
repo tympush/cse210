@@ -1,7 +1,7 @@
 using System;
 
-public class PromptGenerator{
-
+public class PromptGenerator
+{
     public List<string> _promptsList = new List<string> 
     {
         "What was the most interesting interaction I had with someone today?",
@@ -14,8 +14,8 @@ public class PromptGenerator{
         "What did I dedicate the most time to today?"
     };
 
-
-    public string ChooseRandom(){
+    public string ChooseRandom()
+    {
         return _promptsList[new Random().Next(0, _promptsList.Count)];
     }
 }
