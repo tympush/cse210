@@ -1,6 +1,12 @@
 using System;
 using System.Runtime.Remoting;
 
+
+// Showing Creativity and Exceeding Requirements
+// - made the random word selector check for already hidden words so that it always hides new words
+// - added a difficulty selector which allows the user to choose how many words to hide each time
+
+
 class Program
 {
     static void Main(string[] args)
