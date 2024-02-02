@@ -13,11 +13,19 @@ public class Activity
     }
 
 
-    public void DisplayStartingMessage()
+    protected void DisplayStartingMessage(bool timerPerQuestion)
     {
         Console.Clear();
 
-        Console.Write($"Welcome to the {_name}.\n\n{_description}\n\nHow long, in seconds, would you like for your session? ");
+        if (timerPerQuestion)
+        {
+            Console.Write($"Welcome to the {_name}.\n\n{_description}\n\nHow long, in seconds, would you like for each question? ");
+        }
+        else
+        {
+            Console.Write($"Welcome to the {_name}.\n\n{_description}\n\nHow long, in seconds, would you like for your session? ");
+        }
+
         string durationInput = Console.ReadLine();
 
         int tempDuration;
@@ -25,26 +33,48 @@ public class Activity
         if (int.TryParse(durationInput, out tempDuration))
         {
             _duration = tempDuration;
-            Console.WriteLine($"Session duration set to: {_duration} seconds");
+
+            if (timerPerQuestion)
+            {
+                Console.WriteLine($"Question duration set to: {_duration} seconds");
+            }
+            else
+            {
+                Console.WriteLine($"Session duration set to: {_duration} seconds");
+            }
         }
         else
         {
-            Console.WriteLine($"Invalid input. Session duration set to: {_duration} seconds");
+            if (timerPerQuestion)
+            {
+                Console.WriteLine($"Invalid input. Question duration set to: {_duration} seconds");
+            }
+            else
+            {
+                Console.WriteLine($"Invalid input. Session duration set to: {_duration} seconds");
+            }
         }
 
         Console.WriteLine("Press enter to start.");
         Console.ReadLine();
     }
 
-    public void DisplayEndingMessage()
+    protected void DisplayEndingMessage(bool timerPerQuestion)
     {
         Console.WriteLine("\nWell done!!");
         ShowSpinner(5);
-        Console.Write($"\nYou have completed another {_duration} seconds of the {_name}.");
+        if (timerPerQuestion)
+        {
+            Console.WriteLine($"\nYou have completed another {_duration * 10} seconds of the {_name}.");
+        }
+        else
+        {
+            Console.WriteLine($"\nYou have completed another {_duration} seconds of the {_name}.");
+        }
         ShowSpinner(5);
     }
 
-    public void ShowSpinner(int seconds)
+    protected void ShowSpinner(int seconds)
     {
         int i = 0;
         List<string> animationStrings = new List<string>(){"|","/","-","\\"};
@@ -68,7 +98,7 @@ public class Activity
         }
     }
 
-    public void ShowCountDown(int second)
+    protected void ShowCountDown(int second)
     {
         for (int j = second; j > 0; j--)
         {

@@ -33,10 +33,9 @@ public class ReflectingActivity : Activity
     }
 
 
-
     public void Run()
     {
-        DisplayStartingMessage();
+        DisplayStartingMessage(false);
 
         Console.Clear();
         Console.WriteLine("Get ready...");
@@ -51,30 +50,30 @@ public class ReflectingActivity : Activity
         while (DateTime.Now < endTime)
         {
             DisplayQuestions(GetRandomQuestion());
-            ShowSpinner(5);
+            ShowCountDown(7);
             Console.WriteLine();
         }
 
-        DisplayEndingMessage();
+        DisplayEndingMessage(false);
     }
 
-    public string GetRandomPrompt()
+    private string GetRandomPrompt()
     {
         return _prompts[new Random().Next(0, _prompts.Count)];
     }
 
-    public string GetRandomQuestion()
+    private string GetRandomQuestion()
     {
         return _questions[new Random().Next(0, _questions.Count)];
     }
 
-    public void DisplayPrompt(string prompt)
+    private void DisplayPrompt(string prompt)
     {
         Console.WriteLine($"Consider the following prompt:\n\n --- {prompt} ---\n\nWhen you have something in mind, press enter to continue.");
         Console.ReadLine();
     }
 
-    public void DisplayQuestions(string question)
+    private void DisplayQuestions(string question)
     {
         Console.Write($"> {question} ");
     }

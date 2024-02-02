@@ -8,10 +8,9 @@ public class BreathingActivity : Activity
     }
 
 
-
     public void Run()
     {
-        DisplayStartingMessage();
+        DisplayStartingMessage(false);
 
         Console.Clear();
         Console.WriteLine("Get ready...");
@@ -23,12 +22,12 @@ public class BreathingActivity : Activity
         while (DateTime.Now < endTime)
         {
             Console.Write("\n\nBreathe in...");
-            ShowCountDown(4);
+            ShowCountDown(3);
             Console.Write("\nNow breathe out...");
-            ShowCountDown(6);
+            ShowCountDown(5);
         }
 
         Console.WriteLine();
-        DisplayEndingMessage();
+        DisplayEndingMessage(false);
     }
 }

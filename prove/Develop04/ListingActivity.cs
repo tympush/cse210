@@ -23,29 +23,29 @@ public class ListingActivity : Activity
 
     public void Run()
     {
-        DisplayStartingMessage();
+        DisplayStartingMessage(false);
 
         Console.Clear();
         Console.WriteLine("Get ready...");
         ShowSpinner(5);
 
         Console.Write($"List as many responses as you can to the following prompt:\n --- {GetRandomPrompt()} ---\nYou may begin in: ");
-        ShowCountDown(5);
+        ShowCountDown(8);
         Console.WriteLine();
 
         List<string> responses = new List<string>(GetListFromUser());
         _count = responses.Count();
         Console.WriteLine($"You listed {_count} items!");
 
-        DisplayEndingMessage();
+        DisplayEndingMessage(false);
     }
 
-    public string GetRandomPrompt()
+    private string GetRandomPrompt()
     {
         return _prompts[new Random().Next(0, _prompts.Count)];
     }
 
-    public List<string> GetListFromUser()
+    private List<string> GetListFromUser()
     {
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(_duration);
