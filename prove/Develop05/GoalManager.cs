@@ -6,6 +6,21 @@ public class GoalManager
     private List<Goal> _goalList;
     private int _score;
 
+    private List<string> _rank = new List<string>()
+    {
+        "Beginner", "Advanced Beginner", "Proficient", "Competent", "Expert",
+        "Master", "Epic Apprentice", "Legendary Novice", "Mythic Enthusiast", "Mythical Adept",
+        "Super Savant", "Ascended Aficionado", "Ultra Virtuoso", "Mega Maestro", "Giga Genius",
+        "Alpha Artisan", "Sigma Sorcerer", "Legend Luminary", "Insane Sage", "Omnipotent Scholar",
+        "Supreme Savant", "Divine Doyen", "Transcendent Virtuoso", "Ethereal Maestro", "Celestial Genius",
+        "Infinite Artisan", "Cosmic Sorcerer", "Eternal Luminary", "Paragon Sage", "Apex Scholar",
+        "Ultimate Savant", "Supersonic Scribe", "Phenomenal Prodigy", "Inexhaustible Intellect", "Mystical Maven",
+        "Unstoppable Artificer", "Mythological Magus", "Hypernova Luminary", "Legendary Lorekeeper", "Supernatural Savant",
+        "Galactic Genius", "Astral Archivist", "Alpha Alchemist", "Omega Oracle", "Cosmic Craftsman",
+        "Infinity Incarnate", "Transcendental Tutor", "Divine Dungeon Master", "Eternal Elder", "Primordial Prodigy",
+        "VERY COOL"
+    };
+
 
 
     public GoalManager()
@@ -57,7 +72,18 @@ public class GoalManager
 
     private void DisplayPlayerInfo()
     {
-        Console.WriteLine($"\nYou have {_score} points.\n");
+        Console.WriteLine($"\nYou have {_score} points.");
+
+        int rankNum = _score / 200;
+
+        if (rankNum < 51)
+        {
+            Console.WriteLine($"Your rank is: {_rank[rankNum]}\n");
+        }
+        else
+        {
+            Console.WriteLine($"Your rank is: {_rank[50]} + {rankNum-50}\n");
+        }
     }
 
     private void ListGoalNames() 
@@ -125,7 +151,7 @@ public class GoalManager
     private void SaveGoals() 
     {
         Console.Write("What is the filename for the goal file? ");
-        string filename = Console.ReadLine();
+        string filename = Console.ReadLine() + ".txt";
 
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
@@ -143,7 +169,7 @@ public class GoalManager
         _goalList.Clear();
 
         Console.Write("What is the filename for the goal file? ");
-        string filename = Console.ReadLine();
+        string filename = Console.ReadLine() + ".txt";
 
         string[] lines = System.IO.File.ReadAllLines(filename);
 
