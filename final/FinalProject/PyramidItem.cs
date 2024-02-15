@@ -15,13 +15,13 @@ public class PyramidItem : Item
 
 
 
-    public override float CalculateVolume()
+    public override void CalculateVolume()
     {
-        return 1;
+        _volume = _baseSide * _baseSide * _height / 3;
     }
 
-    public override float CalculateBase()
+    public override void CalculateBase()
     {
-        return 1;
+        _base = _baseSide * _baseSide;
     }
 }

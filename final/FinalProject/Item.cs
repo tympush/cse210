@@ -1,55 +1,50 @@
+using System.Drawing;
+
 public abstract class Item
 {
     protected string _shapeName;
     protected float _volume;
     protected float _base;
-
-    private bool _simpleColor;
-    private bool _doubleColor;
-    private bool _tripleColor;
-    private bool _insect;
-    private bool _fish;
-    private bool _rock;
-    private bool _skull;
-    private bool _flower;
-    private bool _liquidCore;
-    private bool _fineGlitter;
-    private bool _largeGlitter;
-    private bool _foilStrips;
-    private bool _glowPigment;
-    private bool _woodBase;
-    private bool _metalBase;
-    private bool _woodText;
-    private bool _metalText;
-    private int _letters;
+    protected float _totalPrice;
+    List<Option> _options;
 
 
 
     public Item()
     {
-        _simpleColor = false;
-        _doubleColor = false;
-        _tripleColor = false;
-        _insect = false;
-        _fish = false;
-        _rock = false;
-        _skull = false;
-        _flower = false;
-        _liquidCore = false;
-        _fineGlitter = false;
-        _largeGlitter = false;
-        _foilStrips = false;
-        _glowPigment = false;
-        _woodBase = false;
-        _metalBase = false;
-        _woodText = false;
-        _metalText = false;
-        _letters = 0;
+        _options = new List<Option>()
+        {
+            new ResinOption("Resin", 0.08f),
+            
+            new ColorOption("Color1", 1.25f),
+            new ColorOption("Color2", 1.25f),
+            new ColorOption("Color3", 1.25f),
+
+            new Option("Insect", 4.5f),
+            new Option("Fish", 3.5f),
+            new Option("Rock", 2f),
+            new Option("Flower", 1.75f),
+
+            new Option("Glitter", 0.75f),
+            new Option("Stars", 1.25f),
+            new Option("Foil", 1f),
+
+            new BaseOption("WoodBase", 0.07f),
+            new BaseOption("MetalBase", 0.2f),
+
+            new TextOption("WoodText", 0.2f),
+            new TextOption("MetalText", 0.5f)
+        };
     }
 
 
 
-    public abstract float CalculateVolume();
+    public abstract void CalculateVolume();
 
-    public abstract float CalculateBase();
+    public abstract void CalculateBase();
+
+    public void CalculateTotalPrice()
+    {
+
+    }
 }

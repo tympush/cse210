@@ -13,13 +13,13 @@ public class HalfSphereItem : Item
 
 
 
-    public override float CalculateVolume()
+    public override void CalculateVolume()
     {
-        return 1;
+        _volume = 4 / 3 * (float)Math.PI * _radius * _radius * _radius;
     }
 
-    public override float CalculateBase()
+    public override void CalculateBase()
     {
-        return 1;
+        _base = (float)Math.PI * _radius * _radius;
     }
 }

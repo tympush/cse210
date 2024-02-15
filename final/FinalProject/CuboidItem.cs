@@ -17,13 +17,13 @@ public class CuboidItem : Item
 
 
 
-    public override float CalculateVolume()
+    public override void CalculateVolume()
     {
-        return 1;
+        _volume = _lenght * _width * _height;
     }
 
-    public override float CalculateBase()
+    public override void CalculateBase()
     {
-        return 1;
+        _base = _lenght * _width;
     }
 }

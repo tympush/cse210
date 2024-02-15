@@ -9,19 +9,19 @@ public class CubeItem : Item
     public CubeItem(float side)
     {
         _shapeName = "cube";
-        
+
         _side = side;
     }
 
 
 
-    public override float CalculateVolume()
+    public override void CalculateVolume()
     {
-        return 1;
+        _volume = _side * _side * _side;
     }
 
-    public override float CalculateBase()
+    public override void CalculateBase()
     {
-        return 1;
+        _base = _side * _side;
     }
 }
