@@ -1,29 +1,34 @@
 public class CuboidItem : Item
 {
-    private float _lenght;
+    private float _length;
     private float _width;
     private float _height;
 
 
 
-    public CuboidItem(float lenght, float width, float height)
+    public CuboidItem(float length, float width, float height)
     {
         _shapeName = "cuboid";
 
-        _lenght = lenght;
+        _length = length;
         _width = width;
         _height = height;
     }
 
 
 
-    public override void CalculateVolume()
+    public override float CalculateVolume()
     {
-        _volume = _lenght * _width * _height;
+        return _length * _width * _height;
     }
 
-    public override void CalculateBase()
+    public override float CalculateBase()
     {
-        _base = _lenght * _width;
+        return _length * _width;
+    }
+
+    public override string GetStringRepresentation()
+    {
+        return "";
     }
 }

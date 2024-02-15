@@ -15,13 +15,18 @@ public class CubeItem : Item
 
 
 
-    public override void CalculateVolume()
+    public override float CalculateVolume()
     {
-        _volume = _side * _side * _side;
+        return _side * _side * _side;
     }
 
-    public override void CalculateBase()
+    public override float CalculateBase()
     {
-        _base = _side * _side;
+        return _side * _side;
+    }
+
+    public override string GetStringRepresentation()
+    {
+        return "";
     }
 }

@@ -10,24 +10,29 @@ public class Menu
             Cart cart = new Cart();
             OrderSaver orderSaver = new OrderSaver();
 
-            Console.Write("Menu Options:\n   1. Create New Item\n   2. View Cart\n   3. Complete Order\n   4. Quit\nSelect a choice from the menu: ");
+            Console.Write("Menu Options:\n   1. Create New Item\n   2. View Cart\n   3. Empty Cart\n   4. Complete Order\n   5. Quit\nSelect a choice from the menu: ");
             menuInput = Console.ReadLine();
 
             if (menuInput == "1")
             {
-                cart.AddToCart(itemCreator.Start());
+                cart.AddToCart(itemCreator.CreateItem());
             }
 
-            if (menuInput == "2")
+            else if (menuInput == "2")
             {
                 cart.DisplayCart();
             }
 
-            if (menuInput == "3")
+            else if (menuInput == "3")
             {
-                orderSaver.CompleteOrder();
+                cart.EmptyCart();
             }
 
-        }while (menuInput != "4");
+            else if (menuInput == "4")
+            {
+                orderSaver.CompleteOrder(cart.GetCart());
+            }
+
+        }while (menuInput != "5");
     }
 }

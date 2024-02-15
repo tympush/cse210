@@ -13,4 +13,14 @@ public class Cart
     {
         _cart.Add(item);
     }
+
+    public List<Item> GetCart()
+    {
+        return _cart;
+    }
+
+    public void EmptyCart()
+    {
+        _cart.Clear();
+    }
 }

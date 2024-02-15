@@ -3,8 +3,6 @@ using System.Drawing;
 public abstract class Item
 {
     protected string _shapeName;
-    protected float _volume;
-    protected float _base;
     protected float _totalPrice;
     List<Option> _options;
 
@@ -17,12 +15,19 @@ public abstract class Item
 
 
 
-    public abstract void CalculateVolume();
+    public abstract float CalculateVolume();
 
-    public abstract void CalculateBase();
+    public abstract float CalculateBase();
+
+    public void AddOption(Option option)
+    {
+        _options.Add(option);
+    }
 
     public void CalculateTotalPrice()
     {
 
     }
+
+    public abstract string GetStringRepresentation();
 }

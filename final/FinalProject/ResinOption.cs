@@ -4,7 +4,7 @@ public class ResinOption : Option
 
 
 
-    public ResinOption(string name, float cost, float volume) : base(name, cost)
+    public ResinOption(string name, float volume, float cost) : base(name, cost)
     {
         _volume = volume;
     }
@@ -13,10 +13,5 @@ public class ResinOption : Option
     public override float GetCost()
     {
         return _cost * _volume;
-    }
-
-    public void SetVolume(float volume)
-    {
-        _volume = volume;
     }
 }

@@ -4,7 +4,7 @@ public class BaseOption : Option
 
 
 
-    public BaseOption(string name, float cost, float area) : base(name, cost)
+    public BaseOption(string name, float area, float cost) : base(name, cost)
     {
         _area = area;
     }
@@ -13,10 +13,5 @@ public class BaseOption : Option
     public override float GetCost()
     {
         return _cost * _area;
-    }
-
-    public void SetArea(float area)
-    {
-        _area = area;
     }
 }

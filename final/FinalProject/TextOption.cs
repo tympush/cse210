@@ -4,19 +4,14 @@ public class TextOption : Option
 
 
 
-    public TextOption(string name, float cost) : base(name, cost)
+    public TextOption(string name, string text, float cost) : base(name, cost)
     {
-
+        _text = text;
     }
 
 
     public override float GetCost()
     {
         return _cost * _text.Length;
-    }
-
-    public void SetText(string text)
-    {
-        _text = text;
     }
 }
