@@ -15,7 +15,7 @@ public class Menu
 
             if (menuInput == "1")
             {
-                itemCreator.Start();
+                cart.AddToCart(itemCreator.Start());
             }
 
             if (menuInput == "2")

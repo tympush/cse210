@@ -4,9 +4,9 @@ public class ResinOption : Option
 
 
 
-    public ResinOption(string name, float cost) : base(name, cost)
+    public ResinOption(string name, float cost, float volume) : base(name, cost)
     {
-
+        _volume = volume;
     }
 
 

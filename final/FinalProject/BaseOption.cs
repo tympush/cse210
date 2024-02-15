@@ -4,9 +4,9 @@ public class BaseOption : Option
 
 
 
-    public BaseOption(string name, float cost) : base(name, cost)
+    public BaseOption(string name, float cost, float area) : base(name, cost)
     {
-
+        _area = area;
     }
 
 

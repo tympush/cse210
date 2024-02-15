@@ -4,8 +4,8 @@ public class ColorOption : Option
 
 
 
-    public ColorOption(string name, float cost) : base(name, cost)
+    public ColorOption(string name, string color, float cost) : base(name, cost)
     {
-
+        _color = color;
     }
 }

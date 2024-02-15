@@ -1,6 +1,5 @@
 public class Option
 {
-    protected bool _selected;
     protected string _name;
     protected float _cost;
 
@@ -8,16 +7,15 @@ public class Option
 
     public Option(string name, float cost)
     {
-        _selected = false;
         _name = name;
         _cost = cost;
     }
 
 
 
-    public void Select()
+    public string GetName()
     {
-        _selected = true;
+        return _name;
     }
 
     public virtual float GetCost()

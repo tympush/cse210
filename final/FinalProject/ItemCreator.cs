@@ -5,11 +5,6 @@ public class ItemCreator
         return new CubeItem(1f);
     }
 
-    private void AskShape()
-    {
-
-    }
-
     private void AskColor()
     {
 
