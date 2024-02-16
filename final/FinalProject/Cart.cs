@@ -6,7 +6,19 @@ public class Cart
 
     public void DisplayCart()
     {
+        Console.Clear();
+        Console.WriteLine("Your Cart:");
 
+        int counter = 1;
+
+        foreach (Item item in _cart)
+        {
+            Console.WriteLine($"   {counter}. {item.GetStringRepresentation()}");
+            counter ++;
+        }
+
+        Console.Write("Press enter to return to the main menu: ");
+        Console.ReadLine();
     }
 
     public void AddToCart(Item item)

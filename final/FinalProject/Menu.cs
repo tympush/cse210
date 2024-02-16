@@ -10,6 +10,7 @@ public class Menu
             Cart cart = new Cart();
             OrderSaver orderSaver = new OrderSaver();
 
+            Console.Clear();
             Console.Write("Menu Options:\n   1. Create New Item\n   2. View Cart\n   3. Empty Cart\n   4. Complete Order\n   5. Quit\nSelect a choice from the menu: ");
             menuInput = Console.ReadLine();
 

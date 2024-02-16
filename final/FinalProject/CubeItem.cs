@@ -8,7 +8,7 @@ public class CubeItem : Item
 
     public CubeItem(float side)
     {
-        _shapeName = "cube";
+        _shapeName = "Cube";
 
         _side = side;
     }
@@ -27,6 +27,6 @@ public class CubeItem : Item
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"{_shapeName}, side: {_side:F2}cm";
     }
 }

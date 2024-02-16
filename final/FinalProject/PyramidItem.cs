@@ -7,7 +7,7 @@ public class PyramidItem : Item
 
     public PyramidItem(float baseSide, float height)
     {
-        _shapeName = "pyramid";
+        _shapeName = "Pyramid";
 
         _baseSide = baseSide;
         _height = height;

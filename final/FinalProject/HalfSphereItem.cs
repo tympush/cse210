@@ -6,7 +6,7 @@ public class HalfSphereItem : Item
 
     public HalfSphereItem(float radius)
     {
-        _shapeName = "half-sphere";
+        _shapeName = "Half-Sphere";
 
         _radius = radius;
     }

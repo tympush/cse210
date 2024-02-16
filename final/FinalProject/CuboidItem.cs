@@ -8,7 +8,7 @@ public class CuboidItem : Item
 
     public CuboidItem(float length, float width, float height)
     {
-        _shapeName = "cuboid";
+        _shapeName = "Cuboid";
 
         _length = length;
         _width = width;
