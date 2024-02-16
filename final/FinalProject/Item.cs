@@ -3,7 +3,6 @@ using System.Drawing;
 public abstract class Item
 {
     protected string _shapeName;
-    protected float _totalPrice;
     List<Option> _options;
 
 
@@ -24,9 +23,16 @@ public abstract class Item
         _options.Add(option);
     }
 
-    public void CalculateTotalPrice()
+    protected float CalculateTotalPrice()
     {
+        float _totalPrice = 0;
 
+        foreach (Option option in _options)
+        {
+            _totalPrice += option.GetCost();
+        }
+
+        return _totalPrice;
     }
 
     public abstract string GetStringRepresentation();

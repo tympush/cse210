@@ -27,6 +27,6 @@ public class CubeItem : Item
 
     public override string GetStringRepresentation()
     {
-        return $"{_shapeName}, side: {_side:F2}cm";
+        return $"{_shapeName} | side: {_side:F2}cm | price: ${CalculateTotalPrice():F2}";
     }
 }

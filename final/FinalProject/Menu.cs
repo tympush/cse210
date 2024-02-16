@@ -2,14 +2,14 @@ public class Menu
 {
     public void Start()
     {
+        ItemCreator itemCreator = new ItemCreator();
+        Cart cart = new Cart();
+        OrderSaver orderSaver = new OrderSaver();
+
         string menuInput;
 
         do
         {
-            ItemCreator itemCreator = new ItemCreator();
-            Cart cart = new Cart();
-            OrderSaver orderSaver = new OrderSaver();
-
             Console.Clear();
             Console.Write("Menu Options:\n   1. Create New Item\n   2. View Cart\n   3. Empty Cart\n   4. Complete Order\n   5. Quit\nSelect a choice from the menu: ");
             menuInput = Console.ReadLine();

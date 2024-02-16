@@ -27,6 +27,6 @@ public class PyramidItem : Item
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"{_shapeName} | base side: {_baseSide:F2}cm | height: {_height:F2}cm | price: ${CalculateTotalPrice():F2}";
     }
 }

@@ -15,7 +15,7 @@ public class HalfSphereItem : Item
 
     public override float CalculateVolume()
     {
-        return 4 / 3 * (float)Math.PI * _radius * _radius * _radius;
+        return 2 / 3 * (float)Math.PI * _radius * _radius * _radius;
     }
 
     public override float CalculateBase()
@@ -25,6 +25,6 @@ public class HalfSphereItem : Item
 
     public override string GetStringRepresentation()
     {
-        return "";
+        return $"{_shapeName} | radius: {_radius:F2}cm | price: ${CalculateTotalPrice():F2}";
     }
 }
