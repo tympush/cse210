@@ -32,6 +32,7 @@ public class Menu
             else if (menuInput == "4")
             {
                 orderSaver.CompleteOrder(cart.GetCart());
+                cart.EmptyCart();
             }
 
         }while (menuInput != "5");
