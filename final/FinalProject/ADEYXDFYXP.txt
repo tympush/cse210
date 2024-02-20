@@ -1,0 +1,12 @@
+Order Number: ADEYXDFYXP
+
+Email: epic.customer@gmail.com
+Shipping Addresss: House 85, City 8888, North Pole
+
+Order:
+1. Cube | side: 2.50cm | Resin | price: $0.78
+2. Cuboid | length: 18.20cm | width: 6.30cm | height: 1.80cm | Resin | Color1: red | Color2: burgundy | Color3: yellow-orange | Flower | Glow-In-The-Dark Pigment | Wooden Base | Wooden Text: FLOWER | price: $26.30
+3. Pyramid | base side: 8.80cm | height: 5.30cm | Resin | Color1: lime | Skull | Stars | Metal Text: TYMUR PUSHNOY | price: $20.84
+4. Half-Sphere | radius: 2.30cm | Resin | Color1: light grey | Color2: white | Liquid Core | Fine Glitter | Metal Base | price: $10.60
+
+Total: $58.52

@@ -1,0 +1,10 @@
+Order Number: SI4PEBXLH2
+
+Email: evil.customer@gmail.com
+Shipping Addresss: THE VOID
+
+Order:
+1. Half-Sphere | radius: 888.00cm | Resin | Color1: red | Color2: white | Color3: dark grey | Liquid Core | Metal Text: GOOGOOBEE | price: $73327616.00
+2. Pyramid | base side: 1.00cm | height: 1.00cm | Resin | price: $0.02
+
+Total: $73327616.00

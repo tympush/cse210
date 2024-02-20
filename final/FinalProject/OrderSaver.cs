@@ -9,6 +9,8 @@ public class OrderSaver
         Console.Write("Shipping Addresss: ");
         string addressInput = Console.ReadLine();
 
+        float orderTotal = 0;
+
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         string orderCode ="";
 
@@ -20,15 +22,18 @@ public class OrderSaver
 
         using (StreamWriter outputFile = new StreamWriter($"{orderCode}.txt"))
         {
-            outputFile.WriteLine($"Order Number: {orderCode}\nEmail: {emailInput}\nShipping Addresss: {addressInput}\n\nOrder:");
+            outputFile.WriteLine($"Order Number: {orderCode}\n\nEmail: {emailInput}\nShipping Addresss: {addressInput}\n\nOrder:");
 
             int counter = 1;
 
             foreach (Item item in cart)
             {
-                outputFile.WriteLine($"   {counter}. {item.GetStringRepresentation()}");
+                outputFile.WriteLine($"{counter}. {item.GetStringRepresentation()}");
+                orderTotal += item.CalculateTotalPrice();
                 counter ++;
             }
+
+            outputFile.WriteLine($"\nTotal: ${orderTotal:F2}");
         }
 
         Console.Clear();

@@ -6,6 +6,8 @@ public class Cart
 
     public void DisplayCart()
     {
+        float cartTotal = 0;
+
         Console.Clear();
         Console.WriteLine("Your Cart:");
 
@@ -14,10 +16,13 @@ public class Cart
         foreach (Item item in _cart)
         {
             Console.WriteLine($"   {counter}. {item.GetStringRepresentation()}");
+            cartTotal += item.CalculateTotalPrice();
             counter ++;
         }
 
-        Console.Write("Press enter to return to the main menu: ");
+        Console.WriteLine($"\nTotal: ${cartTotal:F2}");
+
+        Console.Write("\nPress enter to return to the main menu: ");
         Console.ReadLine();
     }
 

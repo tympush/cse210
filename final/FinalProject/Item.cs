@@ -21,7 +21,7 @@ public abstract class Item
         _options.Add(option);
     }
 
-    protected float CalculateTotalPrice()
+    public float CalculateTotalPrice()
     {
         float _totalPrice = 0;
 
