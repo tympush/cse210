@@ -10,6 +10,7 @@ public class TextOption : Option
     }
 
 
+
     public override float GetCost()
     {
         return _cost * _text.Length;

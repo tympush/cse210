@@ -18,6 +18,7 @@ public class Option
         return _name;
     }
 
+    //same as GetName() in many cases. But overwritten in some classes, which need GetName() to stay the same.
     public virtual string GetStringRepresentation()
     {
         return _name;

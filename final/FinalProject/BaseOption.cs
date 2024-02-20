@@ -10,6 +10,7 @@ public class BaseOption : Option
     }
 
 
+
     public override float GetCost()
     {
         return _cost * _area;
