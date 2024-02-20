@@ -6,6 +6,9 @@ public class OrderSaver
         Console.Write("Email: ");
         string emailInput = Console.ReadLine();
 
+        Console.Write("Shipping Addresss: ");
+        string addressInput = Console.ReadLine();
+
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         string orderCode ="";
 
@@ -17,7 +20,7 @@ public class OrderSaver
 
         using (StreamWriter outputFile = new StreamWriter($"{orderCode}.txt"))
         {
-            outputFile.WriteLine($"Order Number: {orderCode}\nEmail: {emailInput}\n\nOrder:");
+            outputFile.WriteLine($"Order Number: {orderCode}\nEmail: {emailInput}\nShipping Addresss: {addressInput}\n\nOrder:");
 
             int counter = 1;
 
@@ -27,5 +30,9 @@ public class OrderSaver
                 counter ++;
             }
         }
+
+        Console.Clear();
+        Console.Write("Thank you for your Order!\nPress enter to return to the main menu: ");
+        Console.ReadLine();
     }
 }

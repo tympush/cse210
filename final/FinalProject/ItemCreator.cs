@@ -4,9 +4,34 @@ public class ItemCreator
 {
     float costResinPerCM3 = 0.05f;
     float costPerColor = 1.25f;
-    List<string> colorOptionsList = new List<string>{"red", "orange", "yellow", "green", "blue", "purple"};
-    List<Option> centreFillOptionsList = new List<Option>{new Option("Insect", 4.5f), new Option("Fish", 3.5f), new Option("Rock", 2f), new Option("Flower", 1.75f)};
-    List<Option> textureFillOptionsList = new List<Option>{new Option("Glitter", 0.75f), new Option("Stars", 1.25f), new Option("Foil", 1f)};
+    List<string> colorOptionsList = new List<string>
+    {
+        "red", "burgundy", "scarlet", 
+        "orange", "yellow-orange", "yellow", 
+        "lime", "green", "forest green", 
+        "sky blue", "blue", "navy blue",
+        "purple", "violet", "magenta",
+        "pink", "deep pink", "flamingo",
+        "brown", "light grey", "dark grey",
+        "black", "white"
+    };
+    List<Option> centreFillOptionsList = new List<Option>
+    {
+        new Option("Insect", 4.5f), 
+        new Option("Fish", 3.5f), 
+        new Option("Rock", 2f), 
+        new Option("Flower", 1.75f), 
+        new Option("Skull", 5f),
+        new Option("Liquid Core", 2.75f)
+    };
+    List<Option> textureFillOptionsList = new List<Option>
+    {
+        new Option("Fine Glitter", 0.75f), 
+        new Option("Large Glitter", 0.1f), 
+        new Option("Stars", 1.25f), 
+        new Option("Foil", 0.85f),
+        new Option("Glow-In-The-Dark Pigment", 1.55f)
+    };
     float costWoodBasePerCM2 = 0.07f;
     float costMetalBasePerCM2 = 0.2f;
     float costWoodTextPerLetter = 0.15f;
