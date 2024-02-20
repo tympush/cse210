@@ -15,7 +15,7 @@ public class HalfSphereItem : Item
 
     public override float CalculateVolume()
     {
-        return 2 / 3 * (float)Math.PI * _radius * _radius * _radius;
+        return 2f / 3f * (float)Math.PI * _radius * _radius * _radius;
     }
 
     public override float CalculateBase()

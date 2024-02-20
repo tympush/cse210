@@ -1,9 +1,16 @@
+using System.Data;
+
 public class ItemCreator
 {
     float costResinPerCM3 = 0.05f;
     float costPerColor = 1.25f;
+    List<string> colorOptionsList = new List<string>{"red", "orange", "yellow", "green", "blue", "purple"};
     List<Option> centreFillOptionsList = new List<Option>{new Option("Insect", 4.5f), new Option("Fish", 3.5f), new Option("Rock", 2f), new Option("Flower", 1.75f)};
     List<Option> textureFillOptionsList = new List<Option>{new Option("Glitter", 0.75f), new Option("Stars", 1.25f), new Option("Foil", 1f)};
+    float costWoodBasePerCM2 = 0.07f;
+    float costMetalBasePerCM2 = 0.2f;
+    float costWoodTextPerLetter = 0.15f;
+    float costMetalTextPerLetter = 0.5f;
 
 
 
@@ -47,9 +54,9 @@ public class ItemCreator
 
         } while (item == null);
 
-        item.AddOption(new ResinOption("resin", item.CalculateVolume(), costResinPerCM3));
+        item.AddOption(new ResinOption("Resin", item.CalculateVolume(), costResinPerCM3));
 
-        AskColor(new List<string>{"red", "orange", "yellow", "green", "blue", "purple"});
+        AskColor(colorOptionsList);
         AskFill(centreFillOptionsList, "Pick something to put in the centre of your item:");
         AskFill(textureFillOptionsList, "Pick something to mix into the texture of your item:");
         AskBase();
@@ -416,11 +423,119 @@ public class ItemCreator
 
     private void AskBase()
     {
-        
+        string baseInput;
+
+        Console.Clear();
+
+        while (true)
+        {
+            Console.Write("Do you want a base for your item? y/n: ");
+            baseInput = Console.ReadLine();
+
+            if (baseInput.ToLower() == "n" || baseInput.ToLower() == "y")
+            {
+                break;
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid input. Please type y or n.");
+            }
+        }
+
+        Console.Clear();
+
+        while (baseInput.ToLower() == "y")
+        {
+            Console.Write($"What material do you want the base to be made of?\n   1. Wood - ${costWoodBasePerCM2}/cm²\n   2. Metal - ${costMetalBasePerCM2}/cm²\nSelect one of the options above: ");
+            string baseChoiceInput = Console.ReadLine();
+
+            if (baseChoiceInput == "1")
+            {
+                item.AddOption(new BaseOption("Wooden Base", item.CalculateBase(), costWoodBasePerCM2));
+                break;
+            }
+            else if (baseChoiceInput == "2")
+            {
+                item.AddOption(new BaseOption("Metal Base", item.CalculateBase(), costMetalBasePerCM2));
+                break;
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid input. Please pick a valid number from the list.");
+            }
+        }
     }
 
     private void AskText()
     {
-        
+        string textInput;
+        string customTextInput = "void";
+
+        Console.Clear();
+
+        while (true)
+        {
+            Console.Write("Do you want a custom text for your item? y/n: ");
+            textInput = Console.ReadLine();
+
+            if (textInput.ToLower() == "n" || textInput.ToLower() == "y")
+            {
+                break;
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid input. Please type y or n.");
+            }
+        }
+
+        Console.Clear();
+
+        while (textInput.ToLower() == "y")
+        {
+            Console.Write("Input your custom text (max 16 characters): ");
+            customTextInput = Console.ReadLine();
+
+            if (customTextInput.Count() < 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid input. Please type at least 1 character.");
+            }
+            else if (customTextInput.Count() > 16)
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid input. The max number of characters is 16.");
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        Console.Clear();
+
+        while (textInput.ToLower() == "y")
+        {
+            Console.Write($"What material do you want the text tag to be made of?\n   1. Wood - ${costWoodTextPerLetter}/letter\n   2. Metal - ${costMetalTextPerLetter}/letter\nSelect one of the options above: ");
+            string textChoiceInput = Console.ReadLine();
+
+            if (textChoiceInput == "1")
+            {
+                item.AddOption(new TextOption("Wooden Text", customTextInput.ToUpper(), costWoodTextPerLetter));
+                break;
+            }
+            else if (textChoiceInput == "2")
+            {
+                item.AddOption(new TextOption("Metal Text", customTextInput.ToUpper(), costMetalTextPerLetter));
+                break;
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Invalid input. Please pick a valid number from the list.");
+            }
+        }
     }
 }
