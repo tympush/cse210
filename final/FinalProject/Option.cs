@@ -18,6 +18,11 @@ public class Option
         return _name;
     }
 
+    public virtual string GetStringRepresentation()
+    {
+        return _name;
+    }
+
     public virtual float GetCost()
     {
         return _cost;

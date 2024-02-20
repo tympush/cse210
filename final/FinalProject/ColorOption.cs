@@ -8,4 +8,11 @@ public class ColorOption : Option
     {
         _color = color;
     }
+
+
+
+    public override string GetStringRepresentation()
+    {
+        return $"{_name}: {_color}";
+    }
 }

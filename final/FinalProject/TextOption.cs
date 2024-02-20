@@ -14,4 +14,9 @@ public class TextOption : Option
     {
         return _cost * _text.Length;
     }
+
+    public override string GetStringRepresentation()
+    {
+        return $"{_name}: {_text}";
+    }
 }

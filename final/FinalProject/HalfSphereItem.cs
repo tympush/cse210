@@ -25,6 +25,13 @@ public class HalfSphereItem : Item
 
     public override string GetStringRepresentation()
     {
-        return $"{_shapeName} | radius: {_radius:F2}cm | price: ${CalculateTotalPrice():F2}";
+        string optionsString = "";
+
+        foreach(Option option in GetOptions())
+        {
+            optionsString += $" {option.GetStringRepresentation()} |";
+        }
+
+        return $"{_shapeName} | radius: {_radius:F2}cm |{optionsString} price: ${CalculateTotalPrice():F2}";
     }
 }

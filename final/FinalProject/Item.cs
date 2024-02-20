@@ -1,5 +1,3 @@
-using System.Drawing;
-
 public abstract class Item
 {
     protected string _shapeName;
@@ -33,6 +31,11 @@ public abstract class Item
         }
 
         return _totalPrice;
+    }
+
+    protected List<Option> GetOptions()
+    {
+        return _options;
     }
 
     public abstract string GetStringRepresentation();

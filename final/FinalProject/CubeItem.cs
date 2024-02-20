@@ -1,5 +1,3 @@
-using System.Reflection.Metadata.Ecma335;
-
 public class CubeItem : Item
 {
     private float _side;
@@ -27,6 +25,13 @@ public class CubeItem : Item
 
     public override string GetStringRepresentation()
     {
-        return $"{_shapeName} | side: {_side:F2}cm | price: ${CalculateTotalPrice():F2}";
+        string optionsString = "";
+
+        foreach(Option option in GetOptions())
+        {
+            optionsString += $" {option.GetStringRepresentation()} |";
+        }
+
+        return $"{_shapeName} | side: {_side:F2}cm |{optionsString} price: ${CalculateTotalPrice():F2}";
     }
 }

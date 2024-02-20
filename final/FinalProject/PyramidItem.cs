@@ -27,6 +27,13 @@ public class PyramidItem : Item
 
     public override string GetStringRepresentation()
     {
-        return $"{_shapeName} | base side: {_baseSide:F2}cm | height: {_height:F2}cm | price: ${CalculateTotalPrice():F2}";
+        string optionsString = "";
+
+        foreach(Option option in GetOptions())
+        {
+            optionsString += $" {option.GetStringRepresentation()} |";
+        }
+
+        return $"{_shapeName} | base side: {_baseSide:F2}cm | height: {_height:F2}cm |{optionsString} price: ${CalculateTotalPrice():F2}";
     }
 }
